@@ -1,0 +1,102 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.big {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 800px;
+    height: 350px;
+    margin-bottom: 80px;
+}
+.logodiv{
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 100px;
+    justify-content: center;
+}
+.logo {
+    width: 140px;
+    height: 90px;
+}
+.indiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    margin-top: 30px;
+}
+.input {
+    width: 380px;
+    padding-left: 12px;
+    border: 1px solid rgb(158, 158, 158);
+    border-radius: 50px;
+    height: 30px;
+}
+.bogi {
+    margin-left: 10px;
+    border: 0;
+    border-radius: 50px;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    width: 120px;
+    height: 35px;
+    background-color: #02B589;
+}
+.gib {
+    margin-top: 40px;
+}
+.olddiv {
+    display: block;
+    margin-left: 150px;
+}
+.oldtext {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(112, 112, 112);
+}
+.oldlink {
+    margin-top: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+.newdiv {
+    display: block;
+    margin-left: 150px;
+    margin-top: 20px;
+}
+.newtext {
+    font-size: 13px;
+    font-weight: 600;
+    color: rgb(112, 112, 112);
+}
+.newlink {
+    margin-top: 2px;
+    font-size: 16px;
+    font-weight: 600;
+    color: black;
+}
+.new {
+    display: flex;
+}
+.copy {
+    color: #02B589;
+    font-size: 15px;
+    margin-top: 3px;
+    margin-left: 20px;
+}
+.copy {cursor: pointer;}
+
+.copied {
+    margin-top: 3px;
+    font-size: 15px;
+    font-weight: 700;
+    margin-left: 15px;
+}

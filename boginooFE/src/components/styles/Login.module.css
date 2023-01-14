@@ -1,0 +1,103 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.big {
+    display: block;
+    width: 320px;
+    height: 405px;
+}
+.logodiv {
+    display: flex;
+    justify-content: center;
+    width: 320px;
+}
+.logo {
+    width: 140px;
+    height: 90px;
+}
+.logindiv {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 320px;
+}
+.login {
+    font-size: 23px;
+    font-weight: 700;
+    color: #02B589;
+}
+.email {
+    margin-top: 15px;
+    display: block;
+}
+.emtext {
+    margin-left: 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.eminput {
+    margin-top: 5px;
+    padding-left: 15px;
+    border: 1.5px solid rgb(158, 158, 158);
+    border-radius: 50px;
+    width: 300px;
+    height: 30px;
+}
+.pass {
+    margin-top: 15px;
+    display: block;
+}
+.patext {
+    margin-left: 15px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.painput {
+    margin-top: 5px;
+    padding-left: 15px;
+    border: 1.5px solid rgb(158, 158, 158);
+    border-radius: 50px;
+    width: 300px;
+    height: 30px;
+}
+.nemelt {
+    margin-top: 15px;
+}
+.remember {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 320px;
+    color: #02B589;
+    font-size: 13px;
+    font-weight: 600;
+}
+.check {
+    accent-color: #02B589;
+    padding: 10px;
+    margin-right: 8px;
+}
+.forgot {
+    color: black;
+}
+.switch {
+    margin-top: 25px;
+    font-weight: 600;
+    width: 320px;
+    height: 35px;
+    border: 0;
+    border-radius: 50px;
+    color: white;
+    background-color: #02B589;
+}
+.signup {
+    color: #02B589;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+}
