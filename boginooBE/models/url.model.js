@@ -10,6 +10,7 @@ const redirectSchema = new Schema({
   short: {
     type: String,
     required: true,
+    unique: true,
     default: shortid.generate
   },
 });

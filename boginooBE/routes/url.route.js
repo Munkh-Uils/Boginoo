@@ -3,6 +3,6 @@ const { generate, redirect } = require("../controllers/main.controller");
 
 const router = Router();
 
-router.get("/:id", redirect).post("/", generate);
+router.get("/:id", redirect).post("/links", generate);
 
 module.exports = router;

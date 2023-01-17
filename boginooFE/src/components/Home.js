@@ -15,14 +15,13 @@ export const Home = () => {
   const boginoo = () => {
     setUrl2(inputValue);
     axios
-      .post("http://localhost:3002", {
+      .post("http://localhost:3002/links", {
         url: inputValue,
       })
       .then((res) => {
-        // axios.get("http://localhost:3002").then((res) => {
-          setUrl("http://localhost:3002/" + res.data._id);
-        // });
-        console.log(res.data.short);
+        setUrl("http://localhost:3002/" + res.data.short);
+
+        console.log(res.data);
       });
   };
 
