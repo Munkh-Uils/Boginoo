@@ -16,9 +16,5 @@ app.use(cors());
 // Routes
 app.use(router);
 
-app.get("/", (req, res) => {
-  res.send("Hello World");
-})
-
 // Listen
 app.listen(3002, () => console.log("Server started on port 3002"));

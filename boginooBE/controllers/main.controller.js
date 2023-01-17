@@ -34,4 +34,10 @@ const redirect = async (req, res) => {
   }
 };
 
+app.get("/", async (req, res) => {
+  const { short } = req.params;
+
+  const shortUrl = await Redirect.findOne(short)
+  if (shortUrl === null) return res.sendStatus(404);
+})
 module.exports = { generate, redirect };
