@@ -19,7 +19,7 @@ export const Home = () => {
         url: inputValue,
       })
       .then((res) => {
-        setUrl("http://localhost:3002/" + res.data.short);
+        setUrl("http://localhost:3002/" + res.data._id);
 
         console.log(res.data);
       });

@@ -1,7 +1,6 @@
 const Redirect = require("../models/url.model");
 
 const generate = async (req, res) => {
-  const { url } = req.body;
 
   if (!url) {
     return res.status(400).send("URL is required");
@@ -9,7 +8,7 @@ const generate = async (req, res) => {
 
   try {
     const redirect = await Redirect.create({ url });
-    res.send(redirect)
+    res.send(redirect);
   } catch (error) {
     console.log(error);
     res.status(400).send("Error, try again");
@@ -17,10 +16,10 @@ const generate = async (req, res) => {
 };
 
 const redirect = async (req, res) => {
+  const { id } = req.params;
 
   try {
-    const redirect = await Redirect.findById({short: req.params.id});
-
+    const redirect = await Redirect.findById(id);
     if (!redirect) {
       return res.status(404).send("Redirect not found");
     }

@@ -1,6 +1,5 @@
 const { Schema, model } = require("mongoose");
 const shortid = require("shortid");
-const shortId = require("shortid")
 
 const redirectSchema = new Schema({
   url: {
