@@ -15,11 +15,11 @@ export const Home = () => {
   const boginoo = () => {
     setUrl2(inputValue);
     axios
-      .post("http://localhost:3002/links", {
+      .post("http://localhost:4000/url/", {
         url: inputValue,
       })
       .then((res) => {
-        setUrl("http://localhost:3002/" + res.data._id);
+        setUrl("http://localhost:4000/url/" + res.data.short);
 
         console.log(res.data);
       });

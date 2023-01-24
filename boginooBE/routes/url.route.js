@@ -1,8 +1,8 @@
-const { Router } = require("express");
-const { generate, redirect } = require("../controllers/main.controller");
+const express = require("express");
+const { getUrl, createUrl, getUrls } = require("../controllers/url.controller");
 
-const router = Router();
+const router = express.Router();
 
-router.get("/:id", redirect).post("/links", generate);
+router.get("/url/:id", getUrl).get("/url", getUrls).post("/url", createUrl);
 
 module.exports = router;

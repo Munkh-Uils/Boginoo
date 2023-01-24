@@ -1,20 +1,26 @@
 const express = require("express");
 const cors = require("cors");
+const connect = require("./config/database");
 const router = require("./routes/url.route");
-const connectDb = require("./config/database");
+const user = require("./routes/user.route");
+require("dotenv").config();
 
 const app = express();
 
-// Connect to Database
-connectDb();
+const port = process.env.PORT || 8000;
 
-// Pre Middleware
-app.use(express.json());
-app.unsubscribe(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(express.json());
 
-// Routes
+connect();
+
 app.use(router);
+app.use(user);
 
-// Listen
-app.listen(3002, () => console.log("Server started on port 3002"));
+app.get("/", (req, res) => {
+  res.send("I AM DUCK");
+});
+
+app.listen(port, () => {
+  console.log("Server running at:", port);
+});

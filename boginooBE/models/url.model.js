@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const shortid = require("shortid");
 
-const redirectSchema = new Schema({
+const urlSchema = new Schema({
   url: {
     type: String,
     required: true,
@@ -14,6 +14,6 @@ const redirectSchema = new Schema({
   },
 });
 
-const Redirect = model("Redirect", redirectSchema);
+const Url = model("Url", urlSchema);
 
-module.exports = Redirect;
+module.exports = Url;
