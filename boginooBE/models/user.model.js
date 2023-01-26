@@ -11,6 +11,10 @@ const userSchema = new Schema({
     type: String,
   },
   createdAt: { default: Date.now(), type: Date },
+  roles: {
+    type: [],
+    default: ["user"],
+  },
 });
 
 const User = model("User", userSchema);

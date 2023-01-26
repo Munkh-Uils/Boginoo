@@ -1,7 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const connect = require("./config/database");
-const router = require("./routes/url.route");
+const authRoute = require("./routes/auth.route");
+const url = require("./routes/url.route");
 const user = require("./routes/user.route");
 require("dotenv").config();
 
@@ -14,10 +15,11 @@ app.use(express.json());
 
 connect();
 
-app.use(router);
+app.use(url);
 app.use(user);
+app.use(authRoute);
 
-app.get("/", (req, res) => {
+app.get("/", (_req, res) => {
   res.send("I AM DUCK");
 });
 
