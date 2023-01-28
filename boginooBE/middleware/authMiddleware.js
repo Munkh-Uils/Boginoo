@@ -8,8 +8,7 @@ exports.authMiddleware = (req, res, next) => {
   try {
     const payload = jwt.verify(token, process.env.JWT_SECRET);
   } catch (error) {
-    throw res.send(error);
+    throw res.send({error});
   }
-
   next();
 };

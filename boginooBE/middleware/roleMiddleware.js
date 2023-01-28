@@ -9,11 +9,12 @@ exports.roleMiddleware = (req, res, next) => {
 
     if (!payload) return res.send("Unauthorized");
 
-    if (!payload.roles.includes("admin")) {
+    if (!payload.user.roles.includes("admin")) {
       return res.status(403).send("Permission denied");
     }
+    console.log(payload.user.roles);
     next();
   } catch (error) {
-    res.send(error);
+    res.send({error});
   }
 };

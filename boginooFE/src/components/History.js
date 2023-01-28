@@ -23,13 +23,15 @@ export const History = () => {
       })
       .then((res) => {
         console.log(res.data._id);
-        setUrl("http://localhost:3002/" + res.data._id);
-        setHistory([res.data._id]);
-        setHistory([...history, res.data._id]);
       });
   };
 
-  console.log(history);
+  useEffect(() => {
+    axios.get("http://localhost:4000/url", {}).then((res) => {
+      console.log(res.data);
+      setHistory(res.data);
+    });
+  });
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -46,9 +48,6 @@ export const History = () => {
           <img className={styles.logo} src={logo}></img>
         </div>
         <div className={styles.indiv}>
-          {/* <div className={styles.delete} onClick={Delete}>
-            Устгах
-          </div> */}
           <input
             className={styles.input}
             type="text"
@@ -61,40 +60,39 @@ export const History = () => {
         </div>
         <div className={styles.gib}>
           <div className={styles.newdiv}>
-            <div className={styles.new}>
-              <div className={styles.urls}>
-                {history &&
-                  history.map((item, index) => {
-                    return (
-                      <div key={item + index}>
-                        <div className={styles.olddiv}>
-                          <div className={styles.oldtext}>
-                            Өгөгдсөн холбоос:
-                          </div>
-                          <div className={styles.oldlink}>{url2}</div>
-                        </div>
-                        <div className={styles.newtext}>Богино холбоос:</div>
-                        <div className={styles.shorts}>
-                          <div className={styles.newlink}>
-                            http://localhost/3002/{item}
-                          </div>
-                          <CopyToClipboard
-                            text={url}
-                            onCopy={() => setCopied(true)}
-                          >
-                            <div className={styles.copy}>Хуулж авах</div>
-                          </CopyToClipboard>
-                          {copied && (
-                            <div className={styles.copied}>Хуулсан</div>
-                          )}
-                        </div>
-                        <div className={styles.zur}></div>
-                      </div>
-                    );
-                  })}
+            <div className={styles.new}></div>
+          </div>
+        </div>
+        <div className={styles.text}>Түүх</div>
+        <div className={styles.histories}>
+          <div className={styles.history}>
+            <div className={styles.long}>
+              <div className={styles.oldtext}>Өгөгдсөн холбоос:</div>
+              <div className={styles.oldlink}>
+                https://nest-attendance-app.web.app/
+              </div>
+            </div>
+            <div className={styles.short}>
+              <div className={styles.newtext}>Богино холбоос:</div>
+              <div className={styles.new}>
+                <div className={styles.newlink}>
+                  http://localhost:3000/history
+                </div>
+                <CopyToClipboard text={url} onCopy={() => setCopied(true)}>
+                  <div className={styles.copy}>Хуулж авах</div>
+                </CopyToClipboard>
+                {copied && <div className={styles.copied}>Хуулсан</div>}
               </div>
             </div>
           </div>
+          {history &&
+            history.map((item, index) => {
+              return (
+                <div key={item.name + index}>
+                  <div className={styles.songname}>{item.url}</div>
+                </div>
+              );
+            })}
         </div>
       </div>
     </div>

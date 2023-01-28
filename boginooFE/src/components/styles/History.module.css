@@ -7,11 +7,37 @@
 }
 .big {
     display: block;
-    align-items: center;
-    justify-content: center;
     width: 800px;
-    height: 350px;
-    margin-bottom: 80px;
+    height: 700px;
+}
+.histories {
+    display: block;
+    width: 800px;
+    height: 460px;
+}
+.history {
+    display: flex;
+    align-items: center;
+    width: 800px;
+    height: 75px;
+    border-bottom: 1px solid rgb(183, 183, 183)
+}
+.long {
+    display: block;
+    width: 400px;
+    height: 45px;
+}
+.short {
+    display: block;
+    width: 400px;
+    height: 45px;
+}
+.text {
+    font-size: 28px;
+    font-weight: 700;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    color: #02B589;
 }
 .logodiv{
     display: flex;
@@ -62,9 +88,9 @@
     color: rgb(112, 112, 112);
 }
 .oldlink {
-    margin-top: 2px;
+    margin-top: 8px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     color: black;
 }
 .newdiv {
@@ -81,13 +107,13 @@
     display: flex;
     flex-wrap: wrap;
     width: 200px;
-    margin-top: 2px;
+    margin-top: 8px;
     font-size: 16px;
-    font-weight: 600;
+    font-weight: 500;
     color: black;
 }
 .new {
-    display: block;
+    display: flex;
 }
 .urls {
     display: block;
@@ -95,7 +121,8 @@
 .copy {
     color: #02B589;
     font-size: 15px;
-    margin-left: 200px;
+    margin-top: 9px;
+    margin-left: 30px;
 }
 .copy {cursor: pointer;}
 
