@@ -3,9 +3,9 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
 const signup = async (req, res) => {
-  const { username, password, email } = req.body;
+  const { username, password } = req.body;
 
-  if (!username || !password || !email) {
+  if (!username || !password) {
     return res.send("username, password and email is required");
   }
   const encryptedPassword = await bcrypt.hash(password, 10);
@@ -13,7 +13,6 @@ const signup = async (req, res) => {
     const userDocument = new User({
       username,
       password: encryptedPassword,
-      email,
     });
     const user = await userDocument.save();
     res.send(user);
@@ -33,15 +32,16 @@ const login = async (req, res) => {
     // const roles = Object.values(user.roles);
 
     const isEqual = await bcrypt.compare(password, user.password);
-    const hashPass = user.password;
 
     if (isEqual) {
       const token = jwt.sign({ user }, process.env.JWT_SECRET, {
         expiresIn: "2h",
       });
       return res.send(token);
+    } else {
+      console.log(403);
     }
-    res.send("Your password is incorrect");
+    // res.send("Your password is incorrect");
   } catch (error) {
     throw res.send("User not found");
   }

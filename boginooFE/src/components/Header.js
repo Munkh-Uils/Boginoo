@@ -7,23 +7,15 @@ import { AuthContext } from "./context/Auth.Provider";
 import { IoIosArrowDown } from "react-icons/io";
 
 export const Header = () => {
-  const { user } = useContext(AuthContext);
+  const { username, user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const Login = () => {
     signOut(auth).then(() => {
       navigate("/login");
-      console.log("Signed out successfully");
     });
   };
 
-  const logout = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/open");
-      })
-      .catch((error) => {});
-  };
   return (
     <div className={styles.container}>
       <div className={styles.how}>ХЭРХЭН АЖИЛЛАДАГ ВЭ?</div>
@@ -35,7 +27,7 @@ export const Header = () => {
       {user && (
         <div className={styles.dropdown}>
           <div className={styles.useremail}>
-            {user && <p>{user.email}</p>}
+            {user && <p>{user.username}</p>}
             <IoIosArrowDown className={styles.arrow} />
           </div>
           <div className={styles.dropdowncontent}>
@@ -45,7 +37,10 @@ export const Header = () => {
             <NavLink to="/history">
               <div>Түүх</div>
             </NavLink>
-            <a className={styles.log} onClick={logout}>
+            <NavLink to="/users">
+              <div>Хэрэглэгч</div>
+            </NavLink>
+            <a className={styles.log} onClick={() => logout()}>
               Гарах
             </a>
           </div>
