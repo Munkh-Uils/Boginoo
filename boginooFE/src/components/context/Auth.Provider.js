@@ -6,7 +6,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = (props) => {
   const [user, setUser] = useState(null);
-  const [token, setToken] = useState(null);
+  const [verifyToken, setVerifyToken] = useState(null);
   const full = useRef();
   const navigate = useNavigate();
 
@@ -19,32 +19,52 @@ export const AuthProvider = (props) => {
     }
   }, []);
 
+  const signup = (username, password) => {
+    axios
+      .post("http://localhost:4000/signup", {
+        username,
+        password,
+      })
+      .then((res) => {
+        console.log(res.data);
+        navigate("/login");
+      });
+  };
+
   const login = (username, password) => {
     axios
       .post("http://localhost:4000/login", {
-        username: username,
-        password: password,
+        username,
+        password,
       })
       .then((res) => {
         window.localStorage.setItem("credentials", JSON.stringify(res.data));
         console.log(res.data);
         setUser(res.data);
         navigate("/");
+        verify();
       });
   };
 
-  const signup = (username, password) => {
+  const verify = () => {
     axios
-      .post("http://localhost:4000/signup", {
-        username: username,
-        password: password,
+      .get("http://localhost:4000/verify", {
+        headers: {
+          authorization:
+            window.localStorage.getItem("credentials") &&
+            JSON.parse(window.localStorage.getItem("credentials")),
+        },
       })
       .then((res) => {
-        setUser(res.data);
-        console.log(res.data);
-        navigate("/login");
+        console.log(res.data.token.user);
+        setVerifyToken(res.data.token.user);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
+
+  console.log(user && user);
 
   const logout = () => {
     setUser(null);
@@ -53,7 +73,9 @@ export const AuthProvider = (props) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, full, login, signup, logout }}>
+    <AuthContext.Provider
+      value={{ user, full, login, signup, logout, verifyToken }}
+    >
       {props.children}
     </AuthContext.Provider>
   );

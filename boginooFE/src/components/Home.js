@@ -20,8 +20,6 @@ export const Home = () => {
       })
       .then((res) => {
         setUrl("http://localhost:4000/url/" + res.data.short);
-
-        console.log(res.data);
       });
   };
 

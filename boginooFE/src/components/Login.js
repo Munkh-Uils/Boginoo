@@ -7,7 +7,7 @@ import { AuthContext } from "./context/Auth.Provider";
 import { auth } from "./config";
 
 export const Login = () => {
-  const { login } = useContext(AuthContext);
+  const { verify, login } = useContext(AuthContext);
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");

@@ -4,7 +4,10 @@ const userSchema = new Schema({
   username: String,
   password: String,
   createdAt: { default: Date.now(), type: Date },
-  roles: { type: Object, default: ["user"] },
+  roles: {
+    type: Array,
+    default : ["user"],
+  },
 });
 
 const User = model("User", userSchema);

@@ -5,4 +5,4 @@ const router = express.Router();
 
 router.get("/url/:id", getUrl).get("/url", getUrls).post("/url", createUrl);
 
-module.exports = router;
+module.exports.urlRoutes = router;

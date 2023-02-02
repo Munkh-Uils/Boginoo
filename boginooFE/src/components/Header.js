@@ -7,7 +7,7 @@ import { AuthContext } from "./context/Auth.Provider";
 import { IoIosArrowDown } from "react-icons/io";
 
 export const Header = () => {
-  const { username, user, logout } = useContext(AuthContext);
+  const { verifyToken, user, logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const Login = () => {
@@ -15,6 +15,8 @@ export const Header = () => {
       navigate("/login");
     });
   };
+
+  console.log(verifyToken);
 
   return (
     <div className={styles.container}>
@@ -27,7 +29,7 @@ export const Header = () => {
       {user && (
         <div className={styles.dropdown}>
           <div className={styles.useremail}>
-            {user && <p>{user.username}</p>}
+            {verifyToken && <p>{verifyToken && verifyToken.username}</p>}
             <IoIosArrowDown className={styles.arrow} />
           </div>
           <div className={styles.dropdowncontent}>

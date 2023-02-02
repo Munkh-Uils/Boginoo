@@ -8,12 +8,10 @@ import { AuthContext } from "./context/Auth.Provider";
 export const History = () => {
   const { user } = useContext(AuthContext);
   const [copied, setCopied] = useState(false);
-  const [value, setValue] = useState("");
   const [inputValue, setInputValue] = useState("");
   const [url, setUrl] = useState();
   const [url2, setUrl2] = useState();
   const [history, setHistory] = useState();
-  const [history2, setHistory2] = useState();
 
   const boginoo = () => {
     setUrl2(inputValue);
@@ -31,7 +29,7 @@ export const History = () => {
       console.log(res.data);
       setHistory(res.data);
     });
-  });
+  }, []);
 
   useEffect(() => {
     const timer = setTimeout(() => {

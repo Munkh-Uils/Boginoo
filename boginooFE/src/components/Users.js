@@ -11,6 +11,7 @@ export const Users = () => {
 
   useEffect(() => {
     axios.get("http://localhost:4000/users").then((res) => {
+      window.localStorage.setItem("credentials", JSON.stringify(res.data));
       setUsers(res.data);
       console.log(res.data);
     });
