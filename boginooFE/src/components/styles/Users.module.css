@@ -10,28 +10,6 @@
   width: 800px;
   height: 700px;
 }
-.histories {
-  display: block;
-  width: 800px;
-  height: 460px;
-}
-.history {
-  display: flex;
-  align-items: center;
-  width: 800px;
-  height: 75px;
-  border-bottom: 1px solid rgb(183, 183, 183);
-}
-.long {
-  display: block;
-  width: 400px;
-  height: 45px;
-}
-.short {
-  display: block;
-  width: 400px;
-  height: 45px;
-}
 .text {
   font-size: 28px;
   font-weight: 700;
@@ -50,33 +28,37 @@
   width: 140px;
   height: 90px;
 }
-.indiv {
+.text {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: -10px;
+  margin-bottom: 20px;
+  color: #02b589;
+}
+.bigdiv {
+  margin-top: 100px;
+}
+.users {
+  display: block;
+  width: 800px;
+  height: 460px;
+}
+.user {
   display: flex;
-  justify-content: center;
   align-items: center;
   width: 800px;
-  margin-top: 30px;
+  height: 60px;
+  border-bottom: 1px solid rgb(183, 183, 183);
 }
-.input {
-  width: 380px;
-  padding-left: 12px;
-  border: 1px solid rgb(158, 158, 158);
-  border-radius: 50px;
-  height: 30px;
+.long {
+  display: block;
+  width: 200px;
+  height: 45px;
 }
-.bogi {
-  margin-left: 10px;
-  border: 0;
-  border-radius: 50px;
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  width: 120px;
-  height: 35px;
-  background-color: #02b589;
-}
-.gib {
-  margin-top: 40px;
+.short {
+  display: block;
+  width: 300px;
+  height: 45px;
 }
 .olddiv {
   display: block;
@@ -88,7 +70,7 @@
   color: rgb(112, 112, 112);
 }
 .oldlink {
-  margin-top: 8px;
+  margin-top: 5px;
   font-size: 16px;
   font-weight: 500;
   color: black;
@@ -106,49 +88,12 @@
 .newlink {
   display: flex;
   flex-wrap: wrap;
-  width: 200px;
-  margin-top: 8px;
+  width: 300px;
+  margin-top: 5px;
   font-size: 16px;
   font-weight: 500;
   color: black;
 }
 .new {
   display: flex;
-}
-.urls {
-  display: block;
-}
-.copy {
-  color: #02b589;
-  font-size: 15px;
-  margin-top: 9px;
-  margin-left: 30px;
-}
-.copy {
-  cursor: pointer;
-}
-
-.copied {
-  margin-top: 3px;
-  font-size: 15px;
-  font-weight: 700;
-  margin-left: 15px;
-}
-.zur {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  width: 510px;
-  height: 1px;
-  background-color: rgb(205, 205, 205);
-}
-.shorts {
-  display: flex;
-}
-.delete {
-  font-size: 15px;
-  font-weight: 600;
-  margin-right: 5px;
-}
-.delete {
-  cursor: pointer;
 }

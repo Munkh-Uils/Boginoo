@@ -63,31 +63,35 @@ export const History = () => {
         </div>
         <div className={styles.text}>Түүх</div>
         <div className={styles.histories}>
-          <div className={styles.history}>
-            <div className={styles.long}>
-              <div className={styles.oldtext}>Өгөгдсөн холбоос:</div>
-              <div className={styles.oldlink}>
-                https://nest-attendance-app.web.app/
-              </div>
-            </div>
-            <div className={styles.short}>
-              <div className={styles.newtext}>Богино холбоос:</div>
-              <div className={styles.new}>
-                <div className={styles.newlink}>
-                  http://localhost:3000/history
-                </div>
-                <CopyToClipboard text={url} onCopy={() => setCopied(true)}>
-                  <div className={styles.copy}>Хуулж авах</div>
-                </CopyToClipboard>
-                {copied && <div className={styles.copied}>Хуулсан</div>}
-              </div>
-            </div>
-          </div>
           {history &&
             history.map((item, index) => {
               return (
-                <div key={item.name + index}>
-                  <div className={styles.songname}>{item.url}</div>
+                <div key={index}>
+                  <div className={styles.history}>
+                    <div className={styles.long}>
+                      <div className={styles.oldtext}>Өгөгдсөн холбоос:</div>
+                      <div className={styles.oldlink}>
+                      {item.url.length > 24 &&
+                              item.url.slice(0, 26) + "..."}
+                            {item.url.length < 24 && item.url}
+                      </div>
+                    </div>
+                    <div className={styles.short}>
+                      <div className={styles.newtext}>Богино холбоос:</div>
+                      <div className={styles.new}>
+                        <div className={styles.newlink}>
+                          http://localhost:4000/url/{item.short}
+                        </div>
+                        <CopyToClipboard
+                          text={url}
+                          onCopy={() => setCopied(true)}
+                        >
+                          <div className={styles.copy}>Хуулж авах</div>
+                        </CopyToClipboard>
+                        {copied && <div className={styles.copied}>Хуулсан</div>}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })}

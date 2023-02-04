@@ -2,12 +2,15 @@ import styles from "./styles/Header.module.css";
 import { signOut } from "@firebase/auth";
 import { useNavigate, NavLink } from "react-router-dom";
 import { auth } from "./config";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "./context/Auth.Provider";
 import { IoIosArrowDown } from "react-icons/io";
+import axios from "axios";
 
 export const Header = () => {
-  const { verifyToken, user, logout } = useContext(AuthContext);
+  const { user, logout, useruud } = useContext(AuthContext);
+  const [verifyToken, setVerifyToken] = useState(null);
+  const [admin, setAdmin] = useState(false);
   const navigate = useNavigate();
 
   const Login = () => {
@@ -16,7 +19,28 @@ export const Header = () => {
     });
   };
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:4000/verify", {
+        headers: {
+          authorization:
+            window.localStorage.getItem("credentials") &&
+            JSON.parse(window.localStorage.getItem("credentials")),
+        },
+      })
+      .then((res) => {
+        setVerifyToken(res.data.token.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
   console.log(verifyToken);
+
+  // if (verifyToken.roles === "admin") {
+  //   setAdmin(true);
+  // }
 
   return (
     <div className={styles.container}>
@@ -29,7 +53,7 @@ export const Header = () => {
       {user && (
         <div className={styles.dropdown}>
           <div className={styles.useremail}>
-            {verifyToken && <p>{verifyToken && verifyToken.username}</p>}
+            <p>{verifyToken && verifyToken.username}</p>
             <IoIosArrowDown className={styles.arrow} />
           </div>
           <div className={styles.dropdowncontent}>
@@ -39,8 +63,17 @@ export const Header = () => {
             <NavLink to="/history">
               <div>Түүх</div>
             </NavLink>
-            <NavLink to="/users">
-              <div>Хэрэглэгч</div>
+            <NavLink
+              to="/users"
+              // className={admin ? styles.true : `${styles.flase}`}
+            >
+              <div
+                onClick={() => {
+                  useruud();
+                }}
+              >
+                Хэрэглэгчид
+              </div>
             </NavLink>
             <a className={styles.log} onClick={() => logout()}>
               Гарах
