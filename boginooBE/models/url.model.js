@@ -6,11 +6,15 @@ const urlSchema = new Schema({
     type: String,
     required: true,
   },
+  author_id: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+  },
   short: {
     type: String,
     required: true,
     unique: true,
-    default: shortid.generate
+    default: shortid.generate,
   },
 });
 

@@ -6,17 +6,20 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { AuthContext } from "./context/Auth.Provider";
 
 export const Home = () => {
-  const { user } = useContext(AuthContext);
+  const { user, verifyToken } = useContext(AuthContext);
   const [copied, setCopied] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [url, setUrl] = useState();
   const [url2, setUrl2] = useState();
+
+  console.log(verifyToken);
 
   const boginoo = () => {
     setUrl2(inputValue);
     axios
       .post("http://localhost:4000/url/", {
         url: inputValue,
+        author_id: verifyToken._id,
       })
       .then((res) => {
         setUrl("http://localhost:4000/url/" + res.data.short);

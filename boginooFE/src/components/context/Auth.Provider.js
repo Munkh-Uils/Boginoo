@@ -18,6 +18,8 @@ export const AuthProvider = (props) => {
     } else {
       navigate("/open");
     }
+
+    verify();
   }, []);
 
   const signup = (username, password) => {
@@ -39,11 +41,11 @@ export const AuthProvider = (props) => {
         password,
       })
       .then((res) => {
-        window.localStorage.setItem("credentials", JSON.stringify(res.data));
-        console.log(res.data);
-        setUser(res.data);
         navigate("/");
         verify();
+        window.localStorage.setItem("credentials", JSON.stringify(res.data));
+        console.log(res.data);
+        window.location.reload();
       });
   };
 
@@ -58,29 +60,12 @@ export const AuthProvider = (props) => {
       })
       .then((res) => {
         setVerifyToken(res.data.token.user);
-        window.location.reload();
       })
       .catch((error) => {
         console.log(error);
       });
   };
-
-  const useruud = () => {
-    axios
-      .get("http://localhost:4000/verify", {
-        headers: {
-          authorization:
-            window.localStorage.getItem("credentials") &&
-            JSON.parse(window.localStorage.getItem("credentials")),
-        },
-      })
-      .then((res) => {
-        setVerifyToken(res.data.token.user);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  console.log(verifyToken);
 
   const logout = () => {
     setUser(null);
@@ -90,7 +75,7 @@ export const AuthProvider = (props) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, full, verifyToken, users, login, signup, logout, useruud }}
+      value={{ user, full, verifyToken, users, login, signup, logout }}
     >
       {props.children}
     </AuthContext.Provider>

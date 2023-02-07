@@ -67,13 +67,7 @@ export const Header = () => {
               to="/users"
               // className={admin ? styles.true : `${styles.flase}`}
             >
-              <div
-                onClick={() => {
-                  useruud();
-                }}
-              >
-                Хэрэглэгчид
-              </div>
+              <div>Хэрэглэгчид</div>
             </NavLink>
             <a className={styles.log} onClick={() => logout()}>
               Гарах

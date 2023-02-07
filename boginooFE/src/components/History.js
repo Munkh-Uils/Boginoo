@@ -6,7 +6,7 @@ import { CopyToClipboard } from "react-copy-to-clipboard";
 import { AuthContext } from "./context/Auth.Provider";
 
 export const History = () => {
-  const { user } = useContext(AuthContext);
+  const { user, verifyToken } = useContext(AuthContext);
   const [copied, setCopied] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [url, setUrl] = useState();
@@ -65,35 +65,39 @@ export const History = () => {
         <div className={styles.histories}>
           {history &&
             history.map((item, index) => {
-              return (
-                <div key={index}>
-                  <div className={styles.history}>
-                    <div className={styles.long}>
-                      <div className={styles.oldtext}>Өгөгдсөн холбоос:</div>
-                      <div className={styles.oldlink}>
-                      {item.url.length > 24 &&
-                              item.url.slice(0, 26) + "..."}
-                            {item.url.length < 24 && item.url}
-                      </div>
-                    </div>
-                    <div className={styles.short}>
-                      <div className={styles.newtext}>Богино холбоос:</div>
-                      <div className={styles.new}>
-                        <div className={styles.newlink}>
-                          http://localhost:4000/url/{item.short}
+              if (item.author_id === verifyToken._id) {
+                return (
+                  <div key={index}>
+                    <div className={styles.history}>
+                      <div className={styles.long}>
+                        <div className={styles.oldtext}>Өгөгдсөн холбоос:</div>
+                        <div className={styles.oldlink}>
+                          {item.url.length > 24 &&
+                            item.url.slice(0, 26) + "..."}
+                          {item.url.length < 24 && item.url}
                         </div>
-                        <CopyToClipboard
-                          text={url}
-                          onCopy={() => setCopied(true)}
-                        >
-                          <div className={styles.copy}>Хуулж авах</div>
-                        </CopyToClipboard>
-                        {copied && <div className={styles.copied}>Хуулсан</div>}
+                      </div>
+                      <div className={styles.short}>
+                        <div className={styles.newtext}>Богино холбоос:</div>
+                        <div className={styles.new}>
+                          <div className={styles.newlink}>
+                            http://localhost:4000/url/{item.short}
+                          </div>
+                          <CopyToClipboard
+                            text={url}
+                            onCopy={() => setCopied(true)}
+                          >
+                            <div className={styles.copy}>Хуулж авах</div>
+                          </CopyToClipboard>
+                          {copied && (
+                            <div className={styles.copied}>Хуулсан</div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
+                );
+              }
             })}
         </div>
       </div>

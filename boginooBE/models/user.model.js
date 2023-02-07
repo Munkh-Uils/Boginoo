@@ -6,7 +6,7 @@ const userSchema = new Schema({
   createdAt: { default: Date.now(), type: Date },
   roles: {
     type: Array,
-    default   : ["user"],
+    default: ["user"],
   },
 });
 
