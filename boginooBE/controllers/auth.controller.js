@@ -1,7 +1,7 @@
 const { User } = require("../models/user.model");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const { verify } = require("jsonwebtoken");
+require("dotenv").config();
 
 const signup = async (req, res) => {
   const { username, password, roles } = req.body;
@@ -50,13 +50,12 @@ const login = async (req, res) => {
     // res.send("User not found");
   }
 };
-
 const Verify = (req, res) => {
   console.log(req.headers);
   try {
     const token = jwt.verify(req.headers.authorization, process.env.JWT_SECRET);
     console.log(token);
-    res.send({token});
+    res.send({ token });
   } catch (error) {
     res.send(error);
   }

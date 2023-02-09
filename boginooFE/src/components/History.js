@@ -8,53 +8,35 @@ import { AuthContext } from "./context/Auth.Provider";
 export const History = () => {
   const { user, verifyToken } = useContext(AuthContext);
   const [copied, setCopied] = useState(false);
-  const [inputValue, setInputValue] = useState("");
   const [url, setUrl] = useState();
-  const [url2, setUrl2] = useState();
+  const [local, setLocal] = useState();
   const [history, setHistory] = useState();
-
-  const boginoo = () => {
-    setUrl2(inputValue);
-    axios
-      .post("http://localhost:3002", {
-        url: inputValue,
-      })
-      .then((res) => {
-        console.log(res.data._id);
-      });
-  };
 
   useEffect(() => {
     axios.get("http://localhost:4000/url", {}).then((res) => {
-      console.log(res.data);
       setHistory(res.data);
+      setLocal("http://localhost:4000/url/");
     });
   }, []);
+  console.log(history);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setCopied(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, [copied]);
-  console.log(url);
+  const deleteUrl = (_id) => {
+    axios
+      .delete("http://localhost:4000/url/" + _id)
+      .then(() => {
+        axios.get("http://localhost:4000/url/").then((res) => {
+          setHistory(res.data);
+          setLocal("http://localhost:4000/url/");
+        });
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.big}>
         <div className={styles.logodiv}>
           <img className={styles.logo} src={logo}></img>
-        </div>
-        <div className={styles.indiv}>
-          <input
-            className={styles.input}
-            type="text"
-            placeholder="https://www.web-huudas.mn"
-            onChange={(e) => setInputValue(e.target.value)}
-          />
-          <button className={styles.bogi} onClick={boginoo}>
-            БОГИНОСГОХ
-          </button>
         </div>
         <div className={styles.gib}>
           <div className={styles.newdiv}>
@@ -72,9 +54,9 @@ export const History = () => {
                       <div className={styles.long}>
                         <div className={styles.oldtext}>Өгөгдсөн холбоос:</div>
                         <div className={styles.oldlink}>
-                          {item.url.length > 24 &&
-                            item.url.slice(0, 26) + "..."}
-                          {item.url.length < 24 && item.url}
+                          {item.url.length > 30 &&
+                            item.url.slice(0, 30) + "..."}
+                          {item.url.length < 30 && item.url}
                         </div>
                       </div>
                       <div className={styles.short}>
@@ -84,14 +66,19 @@ export const History = () => {
                             http://localhost:4000/url/{item.short}
                           </div>
                           <CopyToClipboard
-                            text={url}
+                            text={local + item.short}
                             onCopy={() => setCopied(true)}
                           >
                             <div className={styles.copy}>Хуулж авах</div>
                           </CopyToClipboard>
-                          {copied && (
-                            <div className={styles.copied}>Хуулсан</div>
-                          )}
+                          <div
+                            className={styles.delete}
+                            onClick={() => {
+                              deleteUrl(item._id);
+                            }}
+                          >
+                            Устгах
+                          </div>
                         </div>
                       </div>
                     </div>

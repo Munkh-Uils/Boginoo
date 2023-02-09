@@ -24,6 +24,17 @@ export const Users = () => {
       });
   }, []);
 
+  // const deleteUser = (_id) => {
+  //   axios
+  //     .delete("http://localhost:4000/users/" + _id)
+  //     .then(() => {
+  //       axios.get("http://localhost:4000/users/").then((res) => {
+  //         setUsers(res.data);
+  //       });
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+
   return (
     <div className={styles.container}>
       <div className={styles.big}>
@@ -38,20 +49,28 @@ export const Users = () => {
                 return (
                   <div key={index}>
                     <div className={styles.user}>
-                      <div className={styles.long}>
+                      <div className={styles.name}>
                         <div className={styles.oldtext}>Хэрэглэгчийн нэр:</div>
                         <div className={styles.oldlink}>{item.username}</div>
                       </div>
-                      <div className={styles.short}>
+                      <div className={styles.id}>
                         <div className={styles.newtext}>Хэрэглэгчийн ID:</div>
                         <div className={styles.newlink}>{item._id}</div>
                       </div>
-                      <div className={styles.short}>
+                      <div className={styles.role}>
                         <div className={styles.newtext}>
-                          Хэрэглэгчийн үүссэн өдөр:
+                          Хэрэглэгчийн төрөл:
                         </div>
-                        <div className={styles.newlink}>{item.createdAt}</div>
+                        <div className={styles.newlink}>{item.roles}</div>
                       </div>
+                      {/* <div
+                        className={styles.delete}
+                        onClick={() => {
+                          deleteUser(item._id);
+                        }}
+                      >
+                        Устгах
+                      </div> */}
                     </div>
                   </div>
                 );

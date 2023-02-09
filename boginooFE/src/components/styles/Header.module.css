@@ -108,3 +108,9 @@
 .false {
   display: none;
 }
+.admin {
+  display: flex;
+}
+.notadmin {
+  display: none;
+}

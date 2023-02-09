@@ -1,150 +1,164 @@
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
 }
 .big {
-    display: block;
-    width: 800px;
-    height: 700px;
+  display: block;
+  width: 800px;
+  height: 700px;
 }
 .histories {
-    display: block;
-    width: 800px;
-    height: 460px;
+  display: block;
+  width: 800px;
+  height: 460px;
 }
 .history {
-    display: flex;
-    align-items: center;
-    width: 800px;
-    height: 75px;
-    border-bottom: 1px solid rgb(183, 183, 183)
+  display: flex;
+  align-items: center;
+  width: 800px;
+  height: 75px;
+  border-bottom: 1px solid rgb(183, 183, 183);
 }
 .long {
-    display: block;
-    width: 400px;
-    height: 45px;
+  display: block;
+  width: 300px;
+  height: 45px;
 }
 .short {
-    display: block;
-    width: 400px;
-    height: 45px;
+  display: block;
+  width: 450px;
+  height: 45px;
 }
 .text {
-    font-size: 28px;
-    font-weight: 700;
-    margin-top: -10px;
-    margin-bottom: 10px;
-    color: #02B589;
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #02b589;
 }
-.logodiv{
-    display: flex;
-    align-items: center;
-    width: 800px;
-    height: 100px;
-    justify-content: center;
+.logodiv {
+  display: flex;
+  align-items: center;
+  width: 800px;
+  height: 100px;
+  justify-content: center;
 }
 .logo {
-    width: 140px;
-    height: 90px;
+  width: 140px;
+  height: 90px;
 }
 .indiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 800px;
-    margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  margin-top: 30px;
 }
 .input {
-    width: 380px;
-    padding-left: 12px;
-    border: 1px solid rgb(158, 158, 158);
-    border-radius: 50px;
-    height: 30px;
+  width: 380px;
+  padding-left: 12px;
+  border: 1px solid rgb(158, 158, 158);
+  border-radius: 50px;
+  height: 30px;
 }
 .bogi {
-    margin-left: 10px;
-    border: 0;
-    border-radius: 50px;
-    color: white;
-    font-size: 12px;
-    font-weight: 700;
-    width: 120px;
-    height: 35px;
-    background-color: #02B589;
+  margin-left: 10px;
+  border: 0;
+  border-radius: 50px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  width: 120px;
+  height: 35px;
+  background-color: #02b589;
 }
 .gib {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 .olddiv {
-    display: block;
-    margin-bottom: 10px;
+  display: block;
+  margin-bottom: 10px;
 }
 .oldtext {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgb(112, 112, 112);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(112, 112, 112);
 }
 .oldlink {
-    margin-top: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    color: black;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
 }
 .newdiv {
-    display: block;
-    margin-left: 150px;
-    margin-top: 20px;
+  display: block;
+  margin-left: 150px;
+  margin-top: 20px;
 }
 .newtext {
-    font-size: 13px;
-    font-weight: 600;
-    color: rgb(112, 112, 112);
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(112, 112, 112);
 }
 .newlink {
-    display: flex;
-    flex-wrap: wrap;
-    width: 200px;
-    margin-top: 8px;
-    font-size: 16px;
-    font-weight: 500;
-    color: black;
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
 }
 .new {
-    display: flex;
+  display: flex;
+  justify-content: space-between;
 }
 .urls {
-    display: block;
+  display: block;
 }
 .copy {
-    color: #02B589;
-    font-size: 15px;
-    margin-top: 9px;
-    margin-left: 30px;
-}
-.copy {cursor: pointer;}
-
-.copied {
-    margin-top: 3px;
-    font-size: 15px;
-    font-weight: 700;
-    margin-left: 15px;
-}
-.zur {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 510px;
-    height: 1px;
-    background-color: rgb(205, 205, 205);
-}
-.shorts {
-    display: flex;
+  color: #02b589;
+  font-size: 15px;
+  margin-top: 9px;
 }
 .delete {
-    font-size: 15px;
-    font-weight: 600;
-    margin-right: 5px;
+  font-size: 15px;
+  margin-top: 9px;
+  margin-left: -65px;
+  color: red;
 }
-.delete {cursor: pointer;}
+.copyy {
+  color: black;
+  font-size: 15px;
+  margin-top: 9px;
+}
+.copy {
+  cursor: pointer;
+}
+
+.copied {
+  margin-top: 3px;
+  font-size: 15px;
+  font-weight: 700;
+  margin-left: 15px;
+}
+.zur {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 510px;
+  height: 1px;
+  background-color: rgb(205, 205, 205);
+}
+.shorts {
+  display: flex;
+}
+.delete {
+  font-size: 15px;
+  font-weight: 600;
+  margin-right: 5px;
+}
+.delete {
+  cursor: pointer;
+}

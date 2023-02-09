@@ -44,8 +44,10 @@ export const AuthProvider = (props) => {
         navigate("/");
         verify();
         window.localStorage.setItem("credentials", JSON.stringify(res.data));
-        console.log(res.data);
         window.location.reload();
+      })
+      .catch((err) => {
+        console.log(err)
       });
   };
 
@@ -72,6 +74,10 @@ export const AuthProvider = (props) => {
     window.localStorage.removeItem("credentials");
     navigate("/open");
   };
+
+  const local = () => {
+
+  }
 
   return (
     <AuthContext.Provider

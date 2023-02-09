@@ -38,10 +38,6 @@ export const Header = () => {
 
   console.log(verifyToken);
 
-  // if (verifyToken.roles === "admin") {
-  //   setAdmin(true);
-  // }
-
   return (
     <div className={styles.container}>
       <div className={styles.how}>ХЭРХЭН АЖИЛЛАДАГ ВЭ?</div>
@@ -63,11 +59,10 @@ export const Header = () => {
             <NavLink to="/history">
               <div>Түүх</div>
             </NavLink>
-            <NavLink
-              to="/users"
-              // className={admin ? styles.true : `${styles.flase}`}
-            >
-              <div>Хэрэглэгчид</div>
+            <NavLink to="/users">
+              <div className={!admin ? styles.admin : `${styles.notadmin} `}>
+                Хэрэглэгчид
+              </div>
             </NavLink>
             <a className={styles.log} onClick={() => logout()}>
               Гарах

@@ -22,7 +22,7 @@ const getUrls = async (req, res) => {
 };
 
 const getUrl = async (req, res) => {
-  const { id } = req.params;
+  const id = req.params.id;
 
   try {
     const redirect = await Url.findOne({ short: id });
@@ -32,4 +32,10 @@ const getUrl = async (req, res) => {
   }
 };
 
-module.exports = { createUrl, getUrls, getUrl };
+const deleteUrl = async (req, res) => {
+  const id = req.params.id;
+  const result = await Url.findByIdAndDelete(id);
+  res.send(result);
+}
+
+module.exports = { createUrl, getUrls, getUrl, deleteUrl };

@@ -36,7 +36,7 @@
   color: #02b589;
 }
 .bigdiv {
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .users {
   display: block;
@@ -50,14 +50,19 @@
   height: 60px;
   border-bottom: 1px solid rgb(183, 183, 183);
 }
-.long {
+.name {
   display: block;
-  width: 200px;
+  width: 220px;
   height: 45px;
 }
-.short {
+.id {
   display: block;
-  width: 300px;
+  width: 310px;
+  height: 45px;
+}
+.role {
+  display: block;
+  width: 270px;
   height: 45px;
 }
 .olddiv {
@@ -96,4 +101,11 @@
 }
 .new {
   display: flex;
+}
+.delete {
+  font-size: 15px;
+  margin-top: 9px;
+  margin-left: -90px;
+  font-weight: 600;
+  color: red;
 }

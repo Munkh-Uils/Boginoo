@@ -1,3 +1,4 @@
+const Url = require("../models/url.model");
 const { User } = require("../models/user.model");
 
 const getUsers = async (req, res) => {
@@ -8,9 +9,25 @@ const getUsers = async (req, res) => {
     return res.send({ error });
   }
 };
+const getUser = async (req, res) => {
+  const userId = req.params.id;
+  try {
+    const user = await User.findById(userId);
+    res.send(user);
+  } catch (error) {
+    res.status(500).send("Error, try again");
+  }
+};
+const deleteUser = async (req, res) => {
+  const id = req.params.id;
+  try {
+    const result = await User.findByIdAndDelete(id);
+    res.send(result);
+  } catch (error) {}
+};
 const createUser = async (req, res) => {
   const body = req.body;
-
+  
   if (!body) return res.send("username, password and email is required");
 
   try {
@@ -21,4 +38,4 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, createUser };
+module.exports = { getUsers, createUser, getUser, deleteUser };
